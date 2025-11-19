@@ -1,0 +1,381 @@
+# Kivy Layout File for P2P Video Streaming
+# Defines the UI structure and styling
+
+<PeerConfigScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+        
+        # Settings button in top-left
+        BoxLayout:
+            size_hint_y: 0.08
+            Button:
+                text: '⚙️'
+                size_hint_x: 0.15
+                font_size: '24sp'
+                on_release: root.show_settings()
+            Widget:
+        
+        # Header
+        BoxLayout:
+            size_hint_y: 0.15
+            Label:
+                text: '🎬 P2P Video Streaming'
+                font_size: '32sp'
+                bold: True
+        
+        # Status
+        Label:
+            id: status_label
+            text: '🔴 Peer not started'
+            size_hint_y: 0.1
+            color: 1, 0, 0, 1
+        
+        # Profile Selection or New Profile
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: 0.6
+            spacing: 10
+            
+            # Existing profiles section
+            Label:
+                text: 'Select Existing Profile or Create New'
+                font_size: '18sp'
+                bold: True
+                size_hint_y: 0.15
+            
+            ScrollView:
+                size_hint_y: 0.4
+                GridLayout:
+                    id: profiles_list
+                    cols: 1
+                    spacing: 10
+                    size_hint_y: None
+                    height: self.minimum_height
+            
+            Label:
+                text: '--- OR Create New Profile ---'
+                size_hint_y: 0.1
+                font_size: '14sp'
+            
+            # New profile configuration
+            BoxLayout:
+                spacing: 10
+                size_hint_y: 0.15
+                TextInput:
+                    id: peer_id_input
+                    hint_text: 'New Peer ID'
+                    multiline: False
+                TextInput:
+                    id: port_input
+                    hint_text: 'Port'
+                    text: '5000'
+                    multiline: False
+            
+            BoxLayout:
+                spacing: 10
+                size_hint_y: 0.15
+                TextInput:
+                    id: tracker_host_input
+                    hint_text: 'Tracker Host'
+                    text: 'localhost'
+                    multiline: False
+                TextInput:
+                    id: tracker_port_input
+                    hint_text: 'Tracker Port'
+                    text: '6000'
+                    multiline: False
+            
+            Button:
+                id: start_button
+                text: '▶️ Start with New Profile'
+                size_hint_y: 0.15
+                on_release: root.start_peer()
+
+<MyVideosScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+        
+        # Header with settings and user icon
+        BoxLayout:
+            size_hint_y: 0.08
+            Button:
+                text: '⚙️'
+                size_hint_x: 0.1
+                font_size: '24sp'
+                on_release: root.show_settings()
+            Widget:
+            Button:
+                text: '👤'
+                size_hint_x: 0.1
+                font_size: '24sp'
+                on_release: root.show_user_menu()
+        
+        # Header and upload button
+        BoxLayout:
+            size_hint_y: 0.1
+            Label:
+                text: '📹 My Video Library'
+                font_size: '20sp'
+                bold: True
+                halign: 'left'
+            Button:
+                text: '⬆️ Upload Video'
+                size_hint_x: 0.35
+                on_release: root.upload_video()
+        
+        # Navigation bar
+        BoxLayout:
+            size_hint_y: 0.08
+            spacing: 5
+            Button:
+                text: '📹 My Videos'
+                disabled: True
+            Button:
+                text: '☁️ Network'
+                on_release: app.root.current = 'network'
+            Button:
+                text: '👥 Peers'
+                on_release: app.root.current = 'peers'
+        
+        # Two-column layout for videos
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+            
+            # Left column - Uploaded Videos
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: 5
+                
+                Label:
+                    text: '📤 My Uploaded Videos'
+                    size_hint_y: 0.08
+                    font_size: '16sp'
+                    bold: True
+                
+                ScrollView:
+                    GridLayout:
+                        id: uploaded_videos_list
+                        cols: 1
+                        spacing: 10
+                        size_hint_y: None
+                        height: self.minimum_height
+            
+            # Right column - Downloaded Videos
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: 5
+                
+                Label:
+                    text: '📥 Network Obtained Videos'
+                    size_hint_y: 0.08
+                    font_size: '16sp'
+                    bold: True
+                
+                ScrollView:
+                    GridLayout:
+                        id: downloaded_videos_list
+                        cols: 1
+                        spacing: 10
+                        size_hint_y: None
+                        height: self.minimum_height
+
+<NetworkBrowseScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+        
+        # Header with settings and user icon
+        BoxLayout:
+            size_hint_y: 0.08
+            Button:
+                text: '⚙️'
+                size_hint_x: 0.1
+                font_size: '24sp'
+                on_release: root.show_settings()
+            Widget:
+            Button:
+                text: '👤'
+                size_hint_x: 0.1
+                font_size: '24sp'
+                on_release: root.show_user_menu()
+        
+        # Header and refresh button
+        BoxLayout:
+            size_hint_y: 0.1
+            Label:
+                text: '☁️ Network Videos'
+                font_size: '20sp'
+                bold: True
+                halign: 'left'
+            Button:
+                text: '🔄 Refresh'
+                size_hint_x: 0.3
+                on_release: root.refresh_network()
+        
+        # Navigation bar
+        BoxLayout:
+            size_hint_y: 0.08
+            spacing: 5
+            Button:
+                text: '📹 My Videos'
+                on_release: app.root.current = 'my_videos'
+            Button:
+                text: '☁️ Network'
+                disabled: True
+            Button:
+                text: '👥 Peers'
+                on_release: app.root.current = 'peers'
+        
+        # Network videos list
+        ScrollView:
+            GridLayout:
+                id: network_videos_list
+                cols: 1
+                spacing: 10
+                size_hint_y: None
+                height: self.minimum_height
+
+<PeersScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+        
+        # Header with settings and user icon
+        BoxLayout:
+            size_hint_y: 0.06
+            Button:
+                text: '⚙️'
+                size_hint_x: 0.1
+                font_size: '24sp'
+                on_release: root.show_settings()
+            Widget:
+            Button:
+                text: '👤'
+                size_hint_x: 0.1
+                font_size: '24sp'
+                on_release: root.show_user_menu()
+        
+        # Header
+        Label:
+            text: '👥 Network Peers'
+            font_size: '20sp'
+            bold: True
+            size_hint_y: 0.06
+        
+        # My Peer Info Section
+        BoxLayout:
+            size_hint_y: 0.12
+            padding: 10
+            canvas.before:
+                Color:
+                    rgba: 0.2, 0.6, 0.86, 0.3
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                id: my_peer_info
+                text: '📍 Your Info:\n\nPeer ID: ---\nHost: ---\nPort: ---'
+                halign: 'left'
+                valign: 'top'
+                font_size: '15sp'
+                text_size: self.width, None
+                size_hint_y: None
+                height: self.texture_size[1]
+        
+        # Navigation bar
+        BoxLayout:
+            size_hint_y: 0.08
+            spacing: 5
+            Button:
+                text: '🎬 My Videos'
+                on_release: app.root.current = 'my_videos'
+            Button:
+                text: '☁️ Network'
+                on_release: app.root.current = 'network'
+            Button:
+                text: '👥 Peers'
+                disabled: True
+        
+        # Two column layout for peers
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+            
+            # Left column - Connected Users
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: 5
+                
+                Label:
+                    text: '🌐 Connected Users'
+                    size_hint_y: 0.08
+                    font_size: '16sp'
+                    bold: True
+                
+                ScrollView:
+                    GridLayout:
+                        id: connected_users_list
+                        cols: 1
+                        spacing: 10
+                        size_hint_y: None
+                        height: self.minimum_height
+                
+                Button:
+                    text: '🔄 Refresh'
+                    size_hint_y: 0.1
+                    on_release: root.refresh_connected_users()
+            
+            # Right column - Friends
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: 5
+                
+                Label:
+                    text: '⭐ Friends'
+                    size_hint_y: 0.08
+                    font_size: '16sp'
+                    bold: True
+                
+                ScrollView:
+                    GridLayout:
+                        id: friends_list
+                        cols: 1
+                        spacing: 10
+                        size_hint_y: None
+                        height: self.minimum_height
+        
+        # Manual Connection Status
+        BoxLayout:
+            id: manual_connection_box
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 0
+            padding: 10
+            spacing: 10
+            canvas.before:
+                Color:
+                    rgba: 0.2, 0.8, 0.2, 0.3
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            
+            Label:
+                id: manual_connection_label
+                text: ''
+                halign: 'left'
+                valign: 'middle'
+                font_size: '14sp'
+            
+            Button:
+                id: disconnect_btn
+                text: '❌'
+                size_hint_x: 0.1
+                font_size: '20sp'
+                on_release: root.disconnect_manual()
