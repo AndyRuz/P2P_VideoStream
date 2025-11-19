@@ -339,6 +339,14 @@ This project is created for educational purposes as part of a Computer Networkin
 - **Technologies**: Python, Kivy, TCP/IP
 - **Inspiration**: BitTorrent, P2P file sharing protocols
 
+## WHAT NEEDS TO BE DONE:
+- **Formatting**: There are still a few formatting issues that need to be taken care of, like the sizing of certain borders/components to encompass the entire video file's details/information. Also, the colors of certain things can be adjusted, like some text's font color being a light-gray color on a white colored box (light mode seems to have the most contrast issue). But the appearance of the application can always be altered to be displayed better.
+- **Fix Download**: For Videos in a user's "Network Obtained Videos" section, when 'Download' is chosen for the video, it takes you through the process of downloading, but doesn't actually download the file, it seems.
+- **Button Icon**: I tried to use some emojis I copied online, and they don't seem to want to display; they just show as squares with 'X's in them. If we wanna find a replacement or just remove them entirely.
+- **Peer User Display**: I kept trying to make the other users on the network also display their PeerID with the other details, but could not figure out why the PeerID would not also display.
+- **User Settings(Optional)**: I don't know if we want to save the user's settings locally or something, so when you use an existing user you created, it automatically opens with your previously chosen/saved resolution and color theme, and any other settings we want to add in.
+- **One File Application(Optional-Andy)**: I am going to see if I can just consolidate the start_tracker.py into the main.py, and have a section where you have to start the tracker before you can create a new user or select a previously created one. This will help with our project's deployment, as GitHub Pages could probably easily host our application with little to no hassle, working from just a single 'main.py' file
+
 
 ## Future Enhancements
 
