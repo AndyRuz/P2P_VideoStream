@@ -1,10 +1,13 @@
+# STREAMLET
+![x|Images Cannot Load|x](Readme_Images/logo.png)
+
 # P2P Video Streaming Application
 
 A peer-to-peer video streaming application built with Python and Kivy that allows users to share and stream videos directly with friends without relying on centralized servers.
 
 ## Project Overview
 
-This application addresses the challenge of sharing videos with friends and family without uploading to social media platforms or signing up for file sharing services. Using a peer-to-peer (P2P) architecture, it improves scalability, fault tolerance, and efficiency by distributing data across multiple peers.
+This application addresses the challenge of sharing videos with friends and family without uploading to social media platforms or signing up for file-sharing services. Using a peer-to-peer (P2P) architecture improves scalability, fault tolerance, and efficiency by distributing data across multiple peers.
 
 ### Team Project
 
@@ -107,13 +110,13 @@ pip install --user -r requirements.txt
 
 **Windows:**
 1. Open Command Prompt
-2. Navigate to project folder
+2. Navigate to the project folder
 3. Start the tracker:
 ```bash
 python start_tracker.py
 ```
 4. Open a **NEW** Command Prompt window
-5. Navigate to project folder again
+5. Navigate to the project folder again
 6. Start the application:
 ```bash
 python main.py
@@ -170,7 +173,7 @@ When creating/selecting a profile, use the Tracker Server's IP address instead o
 5. Click **"Upload"**
 6. Your video appears in **"My Uploaded Videos"**
 
-### Sharing Videos on Network
+### Sharing Videos on the Network
 
 1. In **"My Uploaded Videos"**, click **"Options"** on a video
 2. Click **"Upload to Network"**
@@ -207,18 +210,18 @@ Downloaded videos appear in **"Network Obtained Videos"**
 **Manual Connection:**
 1. Click **"Options"** next to any user
 2. Select **"Connect Manually"**
-3. Connection status appears at bottom of screen
+3. Connection status appears at the bottom of the screen
 4. Click **"❌"** to disconnect
 
 ### User Profile Management
 
-1. Click the **"👤"** icon (top right of any screen)
+1. Click the **"👤User"** icon (top right of any screen)
 2. **"Edit User Details"**: Modify Peer ID, port, or tracker settings
 3. **"Delete User"**: Remove profile and all associated data
 
 ### Customization Settings
 
-1. Click the **"⚙️"** icon (top left of any screen)
+1. Click the **"⚙️Setting"** icon (top left of any screen)
 2. **Color Theme**: 
    - Light Mode - White background, black text
    - Dark Mode - Dark background, white text
@@ -261,7 +264,7 @@ P2PVideoStr/
 
 **Issue: "Failed to register with tracker"**
 - **Solution**: Make sure the tracker server is running first
-- Check that tracker host and port are correct
+- Check that the tracker host and port are correct
 - Ensure no firewall is blocking the connection
 
 **Issue: "Port already in use"**
@@ -283,14 +286,14 @@ P2PVideoStr/
 **Issue: "Video won't play"**
 - **Solution**: 
   1. Install a media player (VLC, Windows Media Player, QuickTime)
-  2. Check video file isn't corrupted
+  2. Check the video file isn't corrupted
   3. Try a different video format
 
 **Issue: "Application crashes on startup"**
 - **Solution**:
   1. Verify all dependencies are installed: `pip install -r requirements.txt`
   2. Check Python version: `python --version` (should be 3.8+)
-  3. Delete `user_profiles/` folder and restart with fresh profile
+  3. Delete the `user_profiles/` folder and restart with a fresh profile
 
 ### Port Configuration
 
@@ -344,8 +347,10 @@ This project is created for educational purposes as part of a Computer Networkin
 - **Fix Download**: For Videos in a user's "Network Obtained Videos" section, when 'Download' is chosen for the video, it takes you through the process of downloading, but doesn't actually download the file, it seems.
 - **Button Icon**: I tried to use some emojis I copied online, and they don't seem to want to display; they just show as squares with 'X's in them. If we wanna find a replacement or just remove them entirely.
 - **Peer User Display**: I kept trying to make the other users on the network also display their PeerID with the other details, but could not figure out why the PeerID would not also display.
+- **Bug Fix**:Users cannot see their own videos that they uploaded on the "Network" section, but other users can see them fine.
+- **Bug Fix**: For the users who can see the uploaded videos on the "Network" section, when you click on the 'Refresh' button, it seems to toggle the videos on/off instead of actually refreshing them.
 - **User Settings(Optional)**: I don't know if we want to save the user's settings locally or something, so when you use an existing user you created, it automatically opens with your previously chosen/saved resolution and color theme, and any other settings we want to add in.
-- **One File Application(Optional-Andy)**: I am going to see if I can just consolidate the start_tracker.py into the main.py, and have a section where you have to start the tracker before you can create a new user or select a previously created one. This will help with our project's deployment, as GitHub Pages could probably easily host our application with little to no hassle, working from just a single 'main.py' file
+- **One File Application(Optional- Andy)**: I am going to see if I can just consolidate the start_tracker.py into the main.py, and have a section where you have to start the tracker before you can create a new user or select a previously created one. This will help with our project's deployment, as GitHub Pages could probably easily host our application with little to no hassle, working from just a single 'main.py' file
 
 
 ## Future Enhancements
