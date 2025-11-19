@@ -1,8 +1,8 @@
-# 🎬 P2P Video Streaming Application
+# P2P Video Streaming Application
 
 A peer-to-peer video streaming application built with Python and Kivy that allows users to share and stream videos directly with friends without relying on centralized servers.
 
-## 📋 Project Overview
+## Project Overview
 
 This application addresses the challenge of sharing videos with friends and family without uploading to social media platforms or signing up for file sharing services. Using a peer-to-peer (P2P) architecture, it improves scalability, fault tolerance, and efficiency by distributing data across multiple peers.
 
@@ -14,7 +14,7 @@ This is a Computer Networking and Distributed Systems course project that demons
 - TCP for reliable data delivery
 - Peer-to-peer architecture with tracker-based peer discovery
 
-## ✨ Features
+## Features
 
 ### Core Functionality
 - **Peer-to-Peer Video Sharing**: Share videos directly between users without centralized storage
@@ -39,7 +39,7 @@ This is a Computer Networking and Distributed Systems course project that demons
 - **Display Format**: Optimize for PC or Mobile viewing
 - **User Profile Management**: Edit user details or delete user accounts
 
-## 🔧 Requirements
+## Requirements
 
 ### System Requirements
 - **Operating System**: Windows, macOS, or Linux
@@ -51,7 +51,7 @@ This is a Computer Networking and Distributed Systems course project that demons
 - `kivy>=2.0.0` - GUI framework
 - `plyer` - Cross-platform file chooser support
 
-## 📦 Installation
+## Installation
 
 ### Step 1: Install Python
 
@@ -99,7 +99,7 @@ If you encounter permission errors, try:
 pip install --user -r requirements.txt
 ```
 
-## 🚀 Running the Application
+## Running the Application
 
 ### Starting the Application
 
@@ -142,7 +142,7 @@ python main.py
 ```
 When creating/selecting a profile, use the Tracker Server's IP address instead of "localhost"
 
-## 📖 Usage Guide
+## Usage Guide
 
 ### First Time Setup
 
@@ -155,7 +155,7 @@ When creating/selecting a profile, use the Tracker Server's IP address instead o
    - Enter a **Port** number (default: 5000)
    - Enter **Tracker Host** (default: localhost)
    - Enter **Tracker Port** (default: 6000)
-   - Click **"▶️ Start with New Profile"**
+   - Click **"Start with New Profile"**
 
 3. **Select Existing Profile**
    - If you've used the app before, your profile will appear at the top
@@ -163,70 +163,70 @@ When creating/selecting a profile, use the Tracker Server's IP address instead o
 
 ### Uploading Videos
 
-1. Navigate to **"🎬 My Videos"** section
-2. Click **"⬆️ Upload Video"**
+1. Navigate to **" My Videos"** section
+2. Click **"Upload Video"**
 3. Select a video file (.mp4, .avi, .mov, .mkv, .flv)
 4. Enter video name and optional description
 5. Click **"Upload"**
-6. Your video appears in **"📤 My Uploaded Videos"**
+6. Your video appears in **"My Uploaded Videos"**
 
 ### Sharing Videos on Network
 
-1. In **"📤 My Uploaded Videos"**, click **"⋮ Options"** on a video
-2. Click **"🌐 Upload to Network"**
-3. Video status changes to "🌐 On Network"
+1. In **"My Uploaded Videos"**, click **"Options"** on a video
+2. Click **"Upload to Network"**
+3. Video status changes to "On Network"
 4. Other users can now discover and download your video
 
 ### Discovering Network Videos
 
-1. Navigate to **"☁️ Network"** section
-2. Click **"🔄 Refresh"** to scan the network
+1. Navigate to **"Network"** section
+2. Click **"Refresh"** to scan the network
 3. Browse available videos from other peers
-4. Click **"⬇️ Download"** on any video to add it to your library
+4. Click **"Download"** on any video to add it to your library
 
 ### Managing Downloaded Videos
 
-Downloaded videos appear in **"📥 Network Obtained Videos"**
+Downloaded videos appear in **"Network Obtained Videos"**
 
 **Available Options:**
-- **▶️ Play Video**: Watch the video
-- **💾 Download to Device**: Save to your computer's storage
-- **🗑️ Remove from Library**: Delete from app (can re-download later)
+- **Play Video**: Watch the video
+- **Download to Device**: Save to your computer's storage
+- **Remove from Library**: Delete from app (can re-download later)
 
 ### Connecting with Peers
 
-1. Navigate to **"👥 Peers"** section
-2. View **"🌐 Connected Users"** - all active peers
-3. Click **"🔄 Refresh"** to update the list
+1. Navigate to **"Peers"** section
+2. View **"Connected Users"** - all active peers
+3. Click **"Refresh"** to update the list
 
 **Adding Friends:**
-1. Click **"⋮ Options"** next to a user
-2. Select **"⭐ Add to Friends"**
-3. User appears in **"⭐ Friends"** section for quick access
+1. Click **"Options"** next to a user
+2. Select **"Add to Friends"**
+3. User appears in **"Friends"** section for quick access
 
 **Manual Connection:**
-1. Click **"⋮ Options"** next to any user
-2. Select **"🔗 Connect Manually"**
+1. Click **"Options"** next to any user
+2. Select **"Connect Manually"**
 3. Connection status appears at bottom of screen
 4. Click **"❌"** to disconnect
 
 ### User Profile Management
 
 1. Click the **"👤"** icon (top right of any screen)
-2. **"✏️ Edit User Details"**: Modify Peer ID, port, or tracker settings
-3. **"🗑️ Delete User"**: Remove profile and all associated data
+2. **"Edit User Details"**: Modify Peer ID, port, or tracker settings
+3. **"Delete User"**: Remove profile and all associated data
 
 ### Customization Settings
 
 1. Click the **"⚙️"** icon (top left of any screen)
 2. **Color Theme**: 
-   - ☀️ Light Mode - White background, black text
-   - 🌙 Dark Mode - Dark background, white text
+   - Light Mode - White background, black text
+   - Dark Mode - Dark background, white text
 3. **Display Format**:
-   - 💻 PC - Optimized for desktop (900x700)
-   - 📱 Mobile - Optimized for mobile devices (400x700)
+   - PC - Optimized for desktop (900x700)
+   - Mobile - Optimized for mobile devices (400x700)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 P2PVideoStr/
@@ -252,12 +252,7 @@ P2PVideoStr/
     └── profiles.json
 ```
 
-## 🎮 Keyboard Shortcuts
-
-- **Ctrl+C** (in terminal): Stop the application
-- **Escape**: Close popups/dialogs
-
-## 🔍 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -304,7 +299,7 @@ P2PVideoStr/
 - Each peer must use a different port
 - Example: Alice (5000), Bob (5001), Charlie (5002)
 
-## 🌐 Network Configuration
+## Network Configuration
 
 ### Same Machine Testing
 - Use `localhost` for tracker host
@@ -323,39 +318,24 @@ If connections fail, allow these in your firewall:
 - Port 6000 (Tracker)
 - Ports 5000-5010 (Peers)
 
-## 🤝 Contributing
-
-This is a course project. If you'd like to extend it:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## 📄 License
+## License
 
 This project is created for educational purposes as part of a Computer Networking and Distributed Systems course.
 
-## 👥 Team Members
+## Team Members
 
-[List your team members here]
-- Member 1 - [Email]
-- Member 2 - [Email]
-- Member 3 - [Email]
-- Member 4 - [Email]
+- Andy Ruzicka - [aruzick1@msudenver.edu]
+- Carmen Sirhall - [csirhall@msudenver.edu]
+- Luke Ross - [lross34@msudenver.edu]
+- Cesar Soto - [csoto15@msudenver.edu]
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Course**: Computer Networking and Distributed Systems
-- **Professor**: [Professor Name]
+- **Professor**: [Professor Le]
 - **Technologies**: Python, Kivy, TCP/IP
 - **Inspiration**: BitTorrent, P2P file sharing protocols
 
-## 📞 Support
-
-For issues or questions:
-1. Check the Troubleshooting section above
-2. Review the console output for error messages
-3. Contact team members via [communication method]
 
 ## 🔮 Future Enhancements
 
