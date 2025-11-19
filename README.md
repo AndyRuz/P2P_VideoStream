@@ -240,6 +240,9 @@ P2PVideoStr/
 │   ├── tracker.py              # Tracker server implementation
 │   ├── network_utils.py        # Network utility functions
 │   └── user_profile.py         # User profile management
+|
+├── user_profiles/              # Stores Users Created on a Device
+│   └── profiles.json             
 │
 ├── main.py                      # Application entry point
 ├── start_tracker.py            # Tracker server starter script
