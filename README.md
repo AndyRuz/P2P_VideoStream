@@ -251,8 +251,8 @@ P2PVideoStr/
 ├── README.md                   # This file
 │
 ├── peer_videos_[PeerID]/       # Generated: User's video storage
-└── user_profiles/              # Generated: User profile data
-    └── profiles.json
+└── testvideo.mp4              # A Short Test Video Included for Testing
+
 ```
 
 ## Troubleshooting
