@@ -60,7 +60,7 @@ If you don't have Python installed:
 **Windows:**
 1. Download Python from [python.org](https://www.python.org/downloads/)
 2. Run the installer
-3. ✅ **Important**: Check "Add Python to PATH" during installation
+3. **Important**: Check "Add Python to PATH" during installation
 
 **macOS:**
 ```bash
@@ -337,7 +337,7 @@ This project is created for educational purposes as part of a Computer Networkin
 - **Inspiration**: BitTorrent, P2P file sharing protocols
 
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 Potential features for future versions:
 - Video streaming (instead of download-only)
