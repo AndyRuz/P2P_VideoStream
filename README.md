@@ -331,7 +331,7 @@ This project is created for educational purposes as part of a Computer Networkin
 ## Team Members
 
 - Andy Ruzicka - [aruzick1@msudenver.edu]
-- Carmen Sirhall - [csirhall@msudenver.edu]
+- Carmen Sirhall - [csirhal1@msudenver.edu]
 - Luke Ross - [lross34@msudenver.edu]
 - Cesar Soto - [csoto15@msudenver.edu]
 
