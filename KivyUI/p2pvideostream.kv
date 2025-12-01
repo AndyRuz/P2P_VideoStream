@@ -5,115 +5,184 @@
     BoxLayout:
         orientation: 'vertical'
         padding: 20
-        spacing: 20
-        
+        spacing: 15
+
         # Settings button in top-left
         BoxLayout:
-            size_hint_y: 0.08
+            orientation: 'horizontal'
+            size_hint_y: 0.1
+            spacing: 10
+
             Button:
-                text: '⚙️ Settings'
+                text: 'Settings'
                 size_hint_x: 0.15
                 font_size: '24sp'
                 on_release: root.show_settings()
-            Widget:
-        
-        # Header
-        BoxLayout:
-            size_hint_y: 0.15
             Label:
-                text: '🎬 P2P Video Streaming'
+                text: 'P2P Video Streaming'
                 font_size: '32sp'
                 bold: True
-        
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.size
+
         # Status
         Label:
             id: status_label
-            text: '🔴 Peer not started'
-            size_hint_y: 0.1
+            text: 'Peer not started'
+            size_hint_y: 0.08
             color: 1, 0, 0, 1
-        
+            halign: 'center'
+            valign: 'middle'
+            text_size: self.size
+
         # Profile Selection or New Profile
         BoxLayout:
             orientation: 'vertical'
-            size_hint_y: 0.6
-            spacing: 10
-            
+            spacing: 15
+            size_hint_y: 0.7
+
             # Existing profiles section
-            Label:
-                text: 'Select Existing Profile or Create New'
-                font_size: '18sp'
-                bold: True
-                size_hint_y: 0.15
-            
-            ScrollView:
-                size_hint_y: 0.4
-                GridLayout:
-                    id: profiles_list
-                    cols: 1
-                    spacing: 10
-                    size_hint_y: None
-                    height: self.minimum_height
-            
-            Label:
-                text: '--- OR Create New Profile ---'
-                size_hint_y: 0.1
-                font_size: '14sp'
-            
-            # New profile configuration
             BoxLayout:
+                orientation: 'vertical'
+                padding: 10
                 spacing: 10
-                size_hint_y: 0.15
-                TextInput:
-                    id: peer_id_input
-                    hint_text: 'New Peer ID'
-                    multiline: False
-                TextInput:
-                    id: port_input
-                    hint_text: 'Port'
-                    text: '5000'
-                    multiline: False
-            
-            BoxLayout:
-                spacing: 10
-                size_hint_y: 0.15
-                TextInput:
-                    id: tracker_host_input
-                    hint_text: 'Tracker Host'
-                    text: 'localhost'
-                    multiline: False
-                TextInput:
-                    id: tracker_port_input
-                    hint_text: 'Tracker Port'
-                    text: '6000'
-                    multiline: False
-            
+                size_hint_y: 0.45
+                canvas.before:
+                    Color:
+                        rgba: 0.9, 0.9, 0.95, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [10]
+
+                Label:
+                    text: 'Select Existing Profile or Create New'
+                    font_size: '18sp'
+                    bold: True
+                    halign: 'center'
+                    valign: 'middle'
+                    text_size: self.size
+
+                ScrollView:
+                    size_hint_y: 0.7
+                    GridLayout:
+                        id: profiles_list
+                        cols: 2   # two columns: name + port
+                        spacing: 10
+                        size_hint_y: None
+                        height: self.minimum_height
+
+                        # Example profile entries
+                        Label:
+                            text: "Suzy"
+                            halign: "left"
+                            valign: "middle"
+                            text_size: self.size
+
+                        Label:
+                            text: "Port: 5000"
+                            halign: "left"
+                            valign: "middle"
+                            text_size: self.size
+
             Button:
                 id: start_button
-                text: '▶️ Start with New Profile'
+                text: 'Start with New Profile'
                 size_hint_y: 0.15
                 on_release: root.start_peer()
 
+            
+        
+        # New profile configuration
+            BoxLayout:
+                orientation: 'vertical'
+                padding: 15
+                spacing: 15
+                size_hint_y: 0.55
+                canvas.before:
+                    Color:
+                        rgba: 0.95, 0.95, 0.97, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [10]
+
+                GridLayout:
+                    cols: 2
+                    spacing: 10
+                    row_default_height: '40dp'
+                    row_force_default: True
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    Label:
+                        text: "Peer ID:"
+                        halign: "left"
+                        valign: "middle"
+                        text_size: self.size
+
+                    TextInput:
+                        id: peer_id_input
+                        hint_text: "New Peer ID"
+                        multiline: False
+
+                    Label:
+                        text: "Port:"
+                        halign: "left"
+                        valign: "middle"
+                        text_size: self.size
+
+                    TextInput:
+                        id: port_input
+                        hint_text: "Port"
+                        text: "5000"
+                        multiline: False
+
+                    Label:
+                        text: "Tracker Host:"
+                        halign: "left"
+                        valign: "middle"
+                        text_size: self.size
+
+                    TextInput:
+                        id: tracker_host_input
+                        hint_text: "Tracker Host"
+                        text: "localhost"
+                        multiline: False
+
+                    Label:
+                        text: "Tracker Port:"
+                        halign: "left"
+                        valign: "middle"
+                        text_size: self.size
+
+                    TextInput:
+                        id: tracker_port_input
+                        hint_text: "Tracker Port"
+                        text: "6000"
+                        multiline: False
 <MyVideosScreen>:
     BoxLayout:
         orientation: 'vertical'
         padding: 10
         spacing: 10
-        
+
         # Header with settings and user icon
         BoxLayout:
             size_hint_y: 0.08
             Button:
-                text: '⚙️ Settings'
+                text: 'Settings'
                 size_hint_x: 0.1
                 font_size: '24sp'
                 on_release: root.show_settings()
             Widget:
             Button:
-                text: '👤 User'
+                text: 'User'
                 size_hint_x: 0.1
                 font_size: '24sp'
                 on_release: root.show_user_menu()
-        
+
         # Header and upload button
         BoxLayout:
             size_hint_y: 0.1
@@ -123,40 +192,40 @@
                 bold: True
                 halign: 'left'
             Button:
-                text: '⬆️ Upload Video'
+                text: 'Upload Video'
                 size_hint_x: 0.35
                 on_release: root.upload_video()
-        
+
         # Navigation bar
         BoxLayout:
             size_hint_y: 0.08
             spacing: 5
             Button:
-                text: '📹 My Videos'
+                text: 'My Videos'
                 disabled: True
             Button:
-                text: '☁️ Network'
+                text: 'Network'
                 on_release: app.root.current = 'network'
             Button:
-                text: '👥 Peers'
+                text: 'Peers'
                 on_release: app.root.current = 'peers'
-        
+
         # Two-column layout for videos
         BoxLayout:
             orientation: 'horizontal'
             spacing: 10
-            
+
             # Left column - Uploaded Videos
             BoxLayout:
                 orientation: 'vertical'
                 spacing: 5
-                
+
                 Label:
-                    text: '📤 My Uploaded Videos'
+                    text: 'My Uploaded Videos'
                     size_hint_y: 0.08
                     font_size: '16sp'
                     bold: True
-                
+
                 ScrollView:
                     GridLayout:
                         id: uploaded_videos_list
@@ -164,18 +233,18 @@
                         spacing: 10
                         size_hint_y: None
                         height: self.minimum_height
-            
+
             # Right column - Downloaded Videos
             BoxLayout:
                 orientation: 'vertical'
                 spacing: 5
-                
+
                 Label:
-                    text: '📥 Network Obtained Videos'
+                    text: 'Network Obtained Videos'
                     size_hint_y: 0.08
                     font_size: '16sp'
                     bold: True
-                
+
                 ScrollView:
                     GridLayout:
                         id: downloaded_videos_list
@@ -184,54 +253,55 @@
                         size_hint_y: None
                         height: self.minimum_height
 
+
 <NetworkBrowseScreen>:
     BoxLayout:
         orientation: 'vertical'
         padding: 10
         spacing: 10
-        
+
         # Header with settings and user icon
         BoxLayout:
             size_hint_y: 0.08
             Button:
-                text: '⚙️ Settings'
+                text: 'Settings'
                 size_hint_x: 0.1
                 font_size: '24sp'
                 on_release: root.show_settings()
             Widget:
             Button:
-                text: '👤 User'
+                text: 'User'
                 size_hint_x: 0.1
                 font_size: '24sp'
                 on_release: root.show_user_menu()
-        
+
         # Header and refresh button
         BoxLayout:
             size_hint_y: 0.1
             Label:
-                text: '☁️ Network Videos'
+                text: 'Network Videos'
                 font_size: '20sp'
                 bold: True
                 halign: 'left'
             Button:
-                text: '🔄 Refresh'
+                text: 'Refresh'
                 size_hint_x: 0.3
                 on_release: root.refresh_network()
-        
+
         # Navigation bar
         BoxLayout:
             size_hint_y: 0.08
             spacing: 5
             Button:
-                text: '📹 My Videos'
+                text: 'My Videos'
                 on_release: app.root.current = 'my_videos'
             Button:
-                text: '☁️ Network'
+                text: 'Network'
                 disabled: True
             Button:
-                text: '👥 Peers'
+                text: 'Peers'
                 on_release: app.root.current = 'peers'
-        
+
         # Network videos list
         ScrollView:
             GridLayout:
@@ -241,34 +311,35 @@
                 size_hint_y: None
                 height: self.minimum_height
 
+
 <PeersScreen>:
     BoxLayout:
         orientation: 'vertical'
         padding: 10
         spacing: 10
-        
+
         # Header with settings and user icon
         BoxLayout:
             size_hint_y: 0.06
             Button:
-                text: '⚙️ Settings'
+                text: 'Settings'
                 size_hint_x: 0.1
                 font_size: '24sp'
                 on_release: root.show_settings()
             Widget:
             Button:
-                text: '👤 User'
+                text: 'User'
                 size_hint_x: 0.1
                 font_size: '24sp'
                 on_release: root.show_user_menu()
-        
+
         # Header
         Label:
-            text: '👥 Network Peers'
+            text: 'Network Peers'
             font_size: '20sp'
             bold: True
             size_hint_y: 0.06
-        
+
         # My Peer Info Section
         BoxLayout:
             size_hint_y: 0.12
@@ -281,44 +352,44 @@
                     size: self.size
             Label:
                 id: my_peer_info
-                text: '📍 Your Info:\n\nPeer ID: ---\nHost: ---\nPort: ---'
+                text: 'Your Info:\n\nPeer ID: ---\nHost: ---\nPort: ---'
                 halign: 'left'
                 valign: 'top'
                 font_size: '15sp'
                 text_size: self.width, None
                 size_hint_y: None
                 height: self.texture_size[1]
-        
+
         # Navigation bar
         BoxLayout:
             size_hint_y: 0.08
             spacing: 5
             Button:
-                text: '🎬 My Videos'
+                text: 'My Videos'
                 on_release: app.root.current = 'my_videos'
             Button:
-                text: '☁️ Network'
+                text: 'Network'
                 on_release: app.root.current = 'network'
             Button:
-                text: '👥 Peers'
+                text: 'Peers'
                 disabled: True
-        
+
         # Two column layout for peers
         BoxLayout:
             orientation: 'horizontal'
             spacing: 10
-            
+
             # Left column - Connected Users
             BoxLayout:
                 orientation: 'vertical'
                 spacing: 5
-                
+
                 Label:
-                    text: '🌐 Connected Users'
+                    text: 'Connected Users'
                     size_hint_y: 0.08
                     font_size: '16sp'
                     bold: True
-                
+
                 ScrollView:
                     GridLayout:
                         id: connected_users_list
@@ -326,23 +397,23 @@
                         spacing: 10
                         size_hint_y: None
                         height: self.minimum_height
-                
+
                 Button:
-                    text: '🔄 Refresh'
+                    text: 'Refresh'
                     size_hint_y: 0.1
                     on_release: root.refresh_connected_users()
-            
+
             # Right column - Friends
             BoxLayout:
                 orientation: 'vertical'
                 spacing: 5
-                
+
                 Label:
-                    text: '⭐ Friends'
+                    text: 'Friends'
                     size_hint_y: 0.08
                     font_size: '16sp'
                     bold: True
-                
+
                 ScrollView:
                     GridLayout:
                         id: friends_list
@@ -350,7 +421,7 @@
                         spacing: 10
                         size_hint_y: None
                         height: self.minimum_height
-        
+
         # Manual Connection Status
         BoxLayout:
             id: manual_connection_box
@@ -365,17 +436,17 @@
                 Rectangle:
                     pos: self.pos
                     size: self.size
-            
+
             Label:
                 id: manual_connection_label
                 text: ''
                 halign: 'left'
                 valign: 'middle'
                 font_size: '14sp'
-            
+
             Button:
                 id: disconnect_btn
-                text: '❌'
+                text: 'Disconnet'
                 size_hint_x: 0.1
                 font_size: '20sp'
                 on_release: root.disconnect_manual()

@@ -1,0 +1,16 @@
+[
+  {
+    "peer_id": "Alice",
+    "port": 5000,
+    "tracker_host": "localhost",
+    "tracker_port": 6000,
+    "friends": []
+  },
+  {
+    "peer_id": "Suzy",
+    "port": 5000,
+    "tracker_host": "localhost",
+    "tracker_port": 6000,
+    "friends": []
+  }
+]

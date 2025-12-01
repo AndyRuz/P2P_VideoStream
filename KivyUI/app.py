@@ -42,8 +42,8 @@ class SettingsPopup(Popup):
         content.add_widget(Label(text='Color Theme:', size_hint_y=0.2, font_size='18sp', bold=True))
         
         theme_box = BoxLayout(size_hint_y=0.2, spacing=10)
-        self.light_mode_btn = Button(text='☀️ Light Mode')
-        self.dark_mode_btn = Button(text='🌙 Dark Mode')
+        self.light_mode_btn = Button(text='Light Mode')
+        self.dark_mode_btn = Button(text='Dark Mode')
         self.light_mode_btn.bind(on_release=self.set_light_mode)
         self.dark_mode_btn.bind(on_release=self.set_dark_mode)
         theme_box.add_widget(self.light_mode_btn)
@@ -54,7 +54,7 @@ class SettingsPopup(Popup):
         content.add_widget(Label(text='Display Format:', size_hint_y=0.2, font_size='18sp', bold=True))
         
         format_box = BoxLayout(size_hint_y=0.2, spacing=10)
-        self.pc_btn = Button(text='💻 PC')
+        self.pc_btn = Button(text='PC')
         self.mobile_btn = Button(text='📱 Mobile')
         self.pc_btn.bind(on_release=self.set_pc_format)
         self.mobile_btn.bind(on_release=self.set_mobile_format)
@@ -182,7 +182,7 @@ class PeerConfigScreen(Screen):
     def set_peer_started(self):
         """Update UI when peer starts"""
         self.peer_started = True
-        self.ids.status_label.text = "🟢 Peer running"
+        self.ids.status_label.text = "Peer running"
         self.ids.start_button.disabled = True
         self.ids.peer_id_input.disabled = True
         self.ids.port_input.disabled = True
@@ -333,7 +333,7 @@ class MyVideosScreen(Screen):
         info_section.add_widget(info_label)
     
         # Status indicator
-        status = "🌐 On Network" if is_on_network else "📍 Local Only"
+        status = "On Network" if is_on_network else "Local Only"
         status_label = Label(
             text=status,
             size_hint_x=0.4,
@@ -379,7 +379,7 @@ class MyVideosScreen(Screen):
     
         # Video name
         name_label = Label(
-            text=f"🎬 {video_name}",
+            text=f"{video_name}",
             size_hint_y=0.4,
             halign='left',
             valign='middle',
@@ -430,25 +430,25 @@ class MyVideosScreen(Screen):
         ))
     
         # Play button
-        play_btn = Button(text='▶️ Play Video', size_hint_y=0.15)
+        play_btn = Button(text='Play Video', size_hint_y=0.15)
         play_btn.bind(on_release=lambda x: self.play_video(video_id, popup))
         content.add_widget(play_btn)
     
         # Edit button
-        edit_btn = Button(text='✏️ Edit Info', size_hint_y=0.15)
+        edit_btn = Button(text='Edit Info', size_hint_y=0.15)
         edit_btn.bind(on_release=lambda x: self.edit_video_info(video_id, video_name, popup))
         content.add_widget(edit_btn)
     
         # Upload to network button (only if not already on network)
         if not is_on_network:
-            upload_network_btn = Button(text='🌐 Upload to Network', size_hint_y=0.15)
+            upload_network_btn = Button(text='Upload to Network', size_hint_y=0.15)
             upload_network_btn.bind(on_release=lambda x: self.upload_to_network(video_id, popup))
             content.add_widget(upload_network_btn)
         else:
-            content.add_widget(Label(text='✅ Already on Network', size_hint_y=0.15, color=(0.4, 1, 0.4, 1)))
+            content.add_widget(Label(text='Already on Network', size_hint_y=0.15, color=(0.4, 1, 0.4, 1)))
     
         # Delete button
-        delete_btn = Button(text='🗑️ Delete', size_hint_y=0.15, background_color=(0.8, 0.2, 0.2, 1))
+        delete_btn = Button(text='Delete', size_hint_y=0.15, background_color=(0.8, 0.2, 0.2, 1))
         delete_btn.bind(on_release=lambda x: self.confirm_delete_video(video_id, video_name, popup))
         content.add_widget(delete_btn)
     
@@ -472,17 +472,17 @@ class MyVideosScreen(Screen):
         ))
     
         # Play button
-        play_btn = Button(text='▶️ Play Video', size_hint_y=0.2)
+        play_btn = Button(text='▶Play Video', size_hint_y=0.2)
         play_btn.bind(on_release=lambda x: self.play_video(video_id, popup))
         content.add_widget(play_btn)
     
         # Download to device button
-        download_btn = Button(text='💾 Download to Device', size_hint_y=0.2)
+        download_btn = Button(text='Download to Device', size_hint_y=0.2)
         download_btn.bind(on_release=lambda x: self.download_to_device(video_id, video_name, popup))
         content.add_widget(download_btn)
     
         # Delete button
-        delete_btn = Button(text='🗑️ Remove from Library', size_hint_y=0.2, background_color=(0.8, 0.2, 0.2, 1))
+        delete_btn = Button(text='Remove from Library', size_hint_y=0.2, background_color=(0.8, 0.2, 0.2, 1))
         delete_btn.bind(on_release=lambda x: self.confirm_delete_downloaded_video(video_id, video_name, popup))
         content.add_widget(delete_btn)
     
@@ -509,7 +509,7 @@ class MyVideosScreen(Screen):
         content.add_widget(desc_input)
         
         button_box = BoxLayout(size_hint_y=0.2, spacing=10)
-        save_btn = Button(text='💾 Save')
+        save_btn = Button(text='Save')
         cancel_btn = Button(text='Cancel')
         button_box.add_widget(save_btn)
         button_box.add_widget(cancel_btn)
@@ -548,7 +548,7 @@ class MyVideosScreen(Screen):
         ))
         
         button_box = BoxLayout(size_hint_y=0.4, spacing=10)
-        confirm_btn = Button(text='🗑️ Delete', background_color=(0.8, 0.2, 0.2, 1))
+        confirm_btn = Button(text='Delete', background_color=(0.8, 0.2, 0.2, 1))
         cancel_btn = Button(text='Cancel')
         button_box.add_widget(confirm_btn)
         button_box.add_widget(cancel_btn)
@@ -578,7 +578,7 @@ class MyVideosScreen(Screen):
         ))
         
         button_box = BoxLayout(size_hint_y=0.4, spacing=10)
-        confirm_btn = Button(text='🗑️ Remove', background_color=(0.8, 0.2, 0.2, 1))
+        confirm_btn = Button(text='Remove', background_color=(0.8, 0.2, 0.2, 1))
         cancel_btn = Button(text='Cancel')
         button_box.add_widget(confirm_btn)
         button_box.add_widget(cancel_btn)
@@ -643,7 +643,7 @@ class MyVideosScreen(Screen):
             valign='middle'
         ))
     
-        copy_btn = Button(text='📋 Copy Path', size_hint_y=0.15)
+        copy_btn = Button(text='Copy Path', size_hint_y=0.15)
         close_btn = Button(text='Close', size_hint_y=0.15)
     
         content.add_widget(copy_btn)
@@ -659,7 +659,7 @@ class MyVideosScreen(Screen):
             try:
                 from kivy.core.clipboard import Clipboard
                 Clipboard.copy(video_path)
-                copy_btn.text = '✅ Copied!'
+                copy_btn.text = 'Copied!'
             except:
                 pass
     
@@ -717,14 +717,14 @@ class NetworkBrowseScreen(Screen):
         container = BoxLayout(size_hint_y=None, height=80, spacing=10)
         
         info_label = Label(
-            text=f"☁️ {video_name}\nSize: {self._format_size(size)}\nFrom: {peer_host}:{peer_port}",
+            text=f"{video_name}\nSize: {self._format_size(size)}\nFrom: {peer_host}:{peer_port}",
             halign='left',
             valign='middle'
         )
         info_label.bind(size=info_label.setter('text_size'))
         
         download_btn = Button(
-            text="⬇️ Download",
+            text="Download",
             size_hint_x=0.3,
             on_release=lambda x: self.download_video(video_id, peer_host, peer_port)
         )
@@ -788,7 +788,7 @@ class PeersScreen(Screen):
         )
     
         info_label = Label(
-            text=f"👤 {peer_id}\n📍 {host}:{port}",
+            text=f" {peer_id}\n {host}:{port}",
             size_hint_y=0.65,
             halign='left',
             valign='middle',
@@ -824,7 +824,7 @@ class PeersScreen(Screen):
     
         # Friend info with better formatting
         info_label = Label(
-            text=f"⭐ {peer_id}\n📍 {host}:{port}",
+            text=f" {peer_id}\n {host}:{port}",
             halign='left',
             valign='middle',
             font_size='15sp',
@@ -862,14 +862,14 @@ class PeersScreen(Screen):
         ))
         
         # Connect manually button
-        connect_btn = Button(text='🔗 Connect Manually', size_hint_y=0.2)
+        connect_btn = Button(text=' Connect Manually', size_hint_y=0.2)
         connect_btn.bind(on_release=lambda x: self.connect_to_user(peer_id, host, port, popup))
         content.add_widget(connect_btn)
         
         if is_friend:
             # Remove from friends
             remove_btn = Button(
-                text='❌ Remove from Friends',
+                text=' Remove from Friends',
                 size_hint_y=0.2,
                 background_color=(0.8, 0.2, 0.2, 1)
             )
@@ -877,7 +877,7 @@ class PeersScreen(Screen):
             content.add_widget(remove_btn)
         else:
             # Add to friends
-            add_friend_btn = Button(text='⭐ Add to Friends', size_hint_y=0.2)
+            add_friend_btn = Button(text='Add to Friends', size_hint_y=0.2)
             add_friend_btn.bind(on_release=lambda x: self.add_to_friends(peer_id, host, port, popup))
             content.add_widget(add_friend_btn)
         
@@ -917,7 +917,7 @@ class PeersScreen(Screen):
     
     def set_my_peer_info(self, peer_id, host, port):
         """Set current user's peer information"""
-        self.ids.my_peer_info.text = f"📍 Your Info:\n\nPeer ID: {peer_id}\nHost: {host}\nPort: {port}"
+        self.ids.my_peer_info.text = f" Your Info:\n\nPeer ID: {peer_id}\nHost: {host}\nPort: {port}"
     
     def show_settings(self):
         """Show settings popup"""
@@ -933,7 +933,7 @@ class PeersScreen(Screen):
     def show_manual_connection(self, peer_id, host, port):
         """Show manual connection indicator"""
         self.ids.manual_connection_box.height = 60
-        self.ids.manual_connection_label.text = f"🔗 Currently Connected to:\n👤 {peer_id} ({host}:{port})"
+        self.ids.manual_connection_label.text = f" Currently Connected to:\n👤 {peer_id} ({host}:{port})"
 
     def hide_manual_connection(self):
         """Hide manual connection indicator"""
@@ -1035,13 +1035,13 @@ class P2PVideoStreamApp(App):
             ))
     
         # Edit details button
-        edit_btn = Button(text='✏️ Edit User Details', size_hint_y=0.25)
+        edit_btn = Button(text=' Edit User Details', size_hint_y=0.25)
         edit_btn.bind(on_release=lambda x: self.show_edit_user_dialog(popup))
         content.add_widget(edit_btn)
     
         # Delete user button
         delete_btn = Button(
-            text='🗑️ Delete User',
+            text=' Delete User',
             size_hint_y=0.25,
             background_color=(0.8, 0.2, 0.2, 1)
         )
@@ -1097,7 +1097,7 @@ class P2PVideoStreamApp(App):
         content.add_widget(tracker_port_input)
     
         button_box = BoxLayout(size_hint_y=0.15, spacing=10)
-        save_btn = Button(text='💾 Save')
+        save_btn = Button(text=' Save')
         cancel_btn = Button(text='Cancel')
         button_box.add_widget(save_btn)
         button_box.add_widget(cancel_btn)
@@ -1152,7 +1152,7 @@ class P2PVideoStreamApp(App):
         ))
     
         button_box = BoxLayout(size_hint_y=0.3, spacing=10)
-        confirm_btn = Button(text='🗑️ Delete', background_color=(0.8, 0.2, 0.2, 1))
+        confirm_btn = Button(text=' Delete', background_color=(0.8, 0.2, 0.2, 1))
         cancel_btn = Button(text='Cancel')
         button_box.add_widget(confirm_btn)
         button_box.add_widget(cancel_btn)
