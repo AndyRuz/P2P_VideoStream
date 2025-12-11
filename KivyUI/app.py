@@ -33,7 +33,7 @@ class SettingsPopup(Popup):
     
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.title = "⚙️ Settings"
+        self.title = "Settings"
         self.size_hint = (0.8, 0.7)
         
         content = BoxLayout(orientation='vertical', padding=20, spacing=15)
@@ -55,7 +55,7 @@ class SettingsPopup(Popup):
         
         format_box = BoxLayout(size_hint_y=0.2, spacing=10)
         self.pc_btn = Button(text='PC')
-        self.mobile_btn = Button(text='📱 Mobile')
+        self.mobile_btn = Button(text='Mobile')
         self.pc_btn.bind(on_release=self.set_pc_format)
         self.mobile_btn.bind(on_release=self.set_mobile_format)
         format_box.add_widget(self.pc_btn)
@@ -323,7 +323,7 @@ class MyVideosScreen(Screen):
     
         # Video details
         info_label = Label(
-            text=f"🎬 {video_name}\nSize: {self._format_size(size)}\nID: {video_id[:8]}...",
+            text=f"{video_name}\nSize: {self._format_size(size)}\nID: {video_id[:8]}...",
             size_hint_x=0.6,
             halign='left',
             valign='middle',
@@ -472,7 +472,7 @@ class MyVideosScreen(Screen):
         ))
     
         # Play button
-        play_btn = Button(text='▶Play Video', size_hint_y=0.2)
+        play_btn = Button(text='Play Video', size_hint_y=0.2)
         play_btn.bind(on_release=lambda x: self.play_video(video_id, popup))
         content.add_widget(play_btn)
     
@@ -797,7 +797,7 @@ class PeersScreen(Screen):
         info_label.bind(size=info_label.setter('text_size'))
     
         options_btn = Button(
-            text='⋮ Options',
+            text='Options',
             size_hint_y=0.35,
             on_release=lambda x: self.show_user_options(peer_id, host, port, is_friend=False)
         )
@@ -834,7 +834,7 @@ class PeersScreen(Screen):
     
         # Options button
         options_btn = Button(
-            text='⋮ Options',
+            text='Options',
             size_hint_y=0.35,
             on_release=lambda x: self.show_user_options(peer_id, host, port, is_friend=True)
         )

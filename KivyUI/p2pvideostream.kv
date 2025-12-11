@@ -176,41 +176,43 @@
 <MyVideosScreen>:
     BoxLayout:
         orientation: 'vertical'
-        padding: 10
-        spacing: 10
+        padding: 15
+        spacing: 15
 
-        # Header with settings and user icon
         BoxLayout:
             size_hint_y: 0.08
+            spacing: 10
             Button:
                 text: 'Settings'
-                size_hint_x: 0.1
-                font_size: '24sp'
+                size_hint_x: None
+                width: dp(120)
+                font_size: '22sp'
                 on_release: root.show_settings()
             Widget:
             Button:
                 text: 'User'
-                size_hint_x: 0.1
-                font_size: '24sp'
+                size_hint_x: None
+                width: dp(120)
+                font_size: '22sp'
                 on_release: root.show_user_menu()
 
-        # Header and upload button
         BoxLayout:
             size_hint_y: 0.1
+            spacing: 10
             Label:
-                text: '📹 My Video Library'
-                font_size: '20sp'
+                text: 'My Video Library'
+                font_size: '22sp'
                 bold: True
                 halign: 'left'
             Button:
                 text: 'Upload Video'
-                size_hint_x: 0.35
+                size_hint_x: None
+                width: dp(180)
                 on_release: root.upload_video()
 
-        # Navigation bar
         BoxLayout:
             size_hint_y: 0.08
-            spacing: 5
+            spacing: 10
             Button:
                 text: 'My Videos'
                 disabled: True
@@ -221,23 +223,20 @@
                 text: 'Peers'
                 on_release: app.root.current = 'peers'
 
-        # Two-column layout for videos
         BoxLayout:
             orientation: 'horizontal'
-            spacing: 10
+            spacing: 20
 
-            # Left column - Uploaded Videos
             BoxLayout:
                 orientation: 'vertical'
-                spacing: 5
-
+                spacing: 10
                 Label:
                     text: 'My Uploaded Videos'
                     size_hint_y: 0.08
-                    font_size: '16sp'
+                    font_size: '18sp'
                     bold: True
-
                 ScrollView:
+                    bar_width: dp(8)
                     GridLayout:
                         id: uploaded_videos_list
                         cols: 1
@@ -245,18 +244,16 @@
                         size_hint_y: None
                         height: self.minimum_height
 
-            # Right column - Downloaded Videos
             BoxLayout:
                 orientation: 'vertical'
-                spacing: 5
-
+                spacing: 10
                 Label:
                     text: 'Network Obtained Videos'
                     size_hint_y: 0.08
-                    font_size: '16sp'
+                    font_size: '18sp'
                     bold: True
-
                 ScrollView:
+                    bar_width: dp(8)
                     GridLayout:
                         id: downloaded_videos_list
                         cols: 1
@@ -268,41 +265,43 @@
 <NetworkBrowseScreen>:
     BoxLayout:
         orientation: 'vertical'
-        padding: 10
-        spacing: 10
+        padding: 15
+        spacing: 15
 
-        # Header with settings and user icon
         BoxLayout:
             size_hint_y: 0.08
+            spacing: 10
             Button:
                 text: 'Settings'
-                size_hint_x: 0.1
-                font_size: '24sp'
+                size_hint_x: None
+                width: dp(120)
+                font_size: '22sp'
                 on_release: root.show_settings()
             Widget:
             Button:
                 text: 'User'
-                size_hint_x: 0.1
-                font_size: '24sp'
+                size_hint_x: None
+                width: dp(120)
+                font_size: '22sp'
                 on_release: root.show_user_menu()
 
-        # Header and refresh button
         BoxLayout:
             size_hint_y: 0.1
+            spacing: 10
             Label:
                 text: 'Network Videos'
-                font_size: '20sp'
+                font_size: '22sp'
                 bold: True
                 halign: 'left'
             Button:
                 text: 'Refresh'
-                size_hint_x: 0.3
+                size_hint_x: None
+                width: dp(160)
                 on_release: root.refresh_network()
 
-        # Navigation bar
         BoxLayout:
             size_hint_y: 0.08
-            spacing: 5
+            spacing: 10
             Button:
                 text: 'My Videos'
                 on_release: app.root.current = 'my_videos'
@@ -313,68 +312,76 @@
                 text: 'Peers'
                 on_release: app.root.current = 'peers'
 
-        # Network videos list
         ScrollView:
+            bar_width: dp(8)
             GridLayout:
                 id: network_videos_list
                 cols: 1
-                spacing: 10
+                spacing: 15
                 size_hint_y: None
                 height: self.minimum_height
+
 
 
 <PeersScreen>:
     BoxLayout:
         orientation: 'vertical'
-        padding: 10
-        spacing: 10
+        padding: 20
+        spacing: 20
 
-        # Header with settings and user icon
         BoxLayout:
-            size_hint_y: 0.06
+            size_hint_y: 0.1
+            spacing: 10
             Button:
                 text: 'Settings'
-                size_hint_x: 0.1
-                font_size: '24sp'
+                size_hint_x: None
+                width: dp(130)
+                font_size: '22sp'
                 on_release: root.show_settings()
             Widget:
             Button:
                 text: 'User'
-                size_hint_x: 0.1
-                font_size: '24sp'
+                size_hint_x: None
+                width: dp(130)
+                font_size: '22sp'
                 on_release: root.show_user_menu()
 
-        # Header
-        Label:
-            text: 'Network Peers'
-            font_size: '20sp'
-            bold: True
-            size_hint_y: 0.06
-
-        # My Peer Info Section
         BoxLayout:
-            size_hint_y: 0.12
-            padding: 10
+            size_hint_y: None
+            height: dp(60)
+            Label:
+                text: 'Network Peers'
+                font_size: '26sp'
+                bold: True
+                halign: 'center'
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: dp(140)
+            padding: 12
+            spacing: 8
             canvas.before:
                 Color:
-                    rgba: 0.2, 0.6, 0.86, 0.3
-                Rectangle:
+                    rgba: 0.8, 0.9, 1, 1
+                RoundedRectangle:
                     pos: self.pos
                     size: self.size
+                    radius: [10]
+
             Label:
                 id: my_peer_info
-                text: 'Your Info:\n\nPeer ID: ---\nHost: ---\nPort: ---'
+                text: 'Peer ID: ---\nHost: ---\nPort: ---'
                 halign: 'left'
                 valign: 'top'
-                font_size: '15sp'
+                font_size: '16sp'
                 text_size: self.width, None
                 size_hint_y: None
-                height: self.texture_size[1]
+                height: self.texture_size[1] + dp(10)
 
-        # Navigation bar
         BoxLayout:
-            size_hint_y: 0.08
-            spacing: 5
+            size_hint_y: 0.1
+            spacing: 10
             Button:
                 text: 'My Videos'
                 on_release: app.root.current = 'my_videos'
@@ -385,79 +392,83 @@
                 text: 'Peers'
                 disabled: True
 
-        # Two column layout for peers
         BoxLayout:
             orientation: 'horizontal'
-            spacing: 10
+            spacing: 25
 
-            # Left column - Connected Users
             BoxLayout:
                 orientation: 'vertical'
-                spacing: 5
-
+                spacing: 10
                 Label:
                     text: 'Connected Users'
-                    size_hint_y: 0.08
-                    font_size: '16sp'
+                    font_size: '20sp'
                     bold: True
+                    size_hint_y: None
+                    height: dp(32)
 
                 ScrollView:
+                    bar_width: dp(8)
                     GridLayout:
                         id: connected_users_list
                         cols: 1
-                        spacing: 10
+                        spacing: 15
+                        padding: 10
                         size_hint_y: None
                         height: self.minimum_height
 
                 Button:
-                    text: 'Refresh'
-                    size_hint_y: 0.1
+                    text: 'Refresh Users'
+                    size_hint_y: None
+                    height: dp(40)
                     on_release: root.refresh_connected_users()
 
-            # Right column - Friends
             BoxLayout:
                 orientation: 'vertical'
-                spacing: 5
-
+                spacing: 10
                 Label:
                     text: 'Friends'
-                    size_hint_y: 0.08
-                    font_size: '16sp'
+                    font_size: '20sp'
                     bold: True
+                    size_hint_y: None
+                    height: dp(32)
 
                 ScrollView:
+                    bar_width: dp(8)
                     GridLayout:
                         id: friends_list
                         cols: 1
-                        spacing: 10
+                        spacing: 15
+                        padding: 10
                         size_hint_y: None
                         height: self.minimum_height
 
-        # Manual Connection Status
         BoxLayout:
             id: manual_connection_box
             orientation: 'horizontal'
             size_hint_y: None
             height: 0
-            padding: 10
+            padding: 12
             spacing: 10
             canvas.before:
                 Color:
-                    rgba: 0.2, 0.8, 0.2, 0.3
-                Rectangle:
+                    rgba: 0.6, 1, 0.6, 0.3
+                RoundedRectangle:
                     pos: self.pos
                     size: self.size
+                    radius: [10]
 
             Label:
                 id: manual_connection_label
                 text: ''
+                font_size: '16sp'
                 halign: 'left'
                 valign: 'middle'
-                font_size: '14sp'
+                text_size: self.size
 
             Button:
                 id: disconnect_btn
-                text: 'Disconnet'
-                size_hint_x: 0.1
+                text: 'Disconnect'
+                size_hint_x: None
+                width: dp(150)
                 font_size: '20sp'
                 on_release: root.disconnect_manual()
