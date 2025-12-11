@@ -1,6 +1,11 @@
 # Kivy Layout File for P2P Video Streaming
 # Defines the UI structure and styling
 
+<Button>:
+    background_normal: ''
+    background_color: 0.8, 0.8, 0.85, 1
+    color: 0, 0, 0, 1
+    
 <PeerConfigScreen>:
     BoxLayout:
         orientation: 'vertical'
@@ -17,6 +22,9 @@
                 text: 'Settings'
                 size_hint_x: 0.15
                 font_size: '24sp'
+                background_normal: ''
+                background_color: 0.8, 0.8, 0.85, 1
+                color: 0, 0, 0, 1
                 on_release: root.show_settings()
             Label:
                 text: 'P2P Video Streaming'
@@ -90,6 +98,9 @@
                 id: start_button
                 text: 'Start with New Profile'
                 size_hint_y: 0.15
+                background_normal: ''
+                background_color: 0.75, 0.75, 0.8, 1
+                color: 0, 0, 0, 1
                 on_release: root.start_peer()
 
             

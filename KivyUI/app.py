@@ -141,7 +141,7 @@ class PeerConfigScreen(Screen):
         port = profile['port']
         
         btn = Button(
-            text=f"👤 {peer_id}\nPort: {port}",
+            text=f"{peer_id}\nPort: {port}",
             size_hint_y=None,
             height=60,
             on_release=lambda x: self.select_profile(profile)
