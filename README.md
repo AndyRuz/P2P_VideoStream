@@ -9,6 +9,10 @@ A peer-to-peer video streaming application built with Python and Kivy that allow
 
 This application addresses the challenge of sharing videos with friends and family without uploading to social media platforms or signing up for file-sharing services. Using a peer-to-peer (P2P) architecture improves scalability, fault tolerance, and efficiency by distributing data across multiple peers.
 
+## PROJECT'S FULL PRESENTATION LINK:
+
+https://www.canva.com/design/DAG7LbkKNi8/ZbZwmxQoqH8bZ3infm6Ogw/edit?utm_content=DAG7LbkKNi8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 ### Team Project
 
 This is a Computer Networking and Distributed Systems course project that demonstrates:
